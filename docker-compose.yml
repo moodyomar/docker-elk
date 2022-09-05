@@ -25,6 +25,8 @@ services:
       - elk
     depends_on:
       - elasticsearch
+    restart:
+      always
 
   elasticsearch:
     build:
@@ -37,6 +39,8 @@ services:
     ports:
       - "9200:9200"
       - "9300:9300"
+    restart:
+      always
     environment:
       ES_JAVA_OPTS: -Xms512m -Xmx512m
       # Bootstrap password.
@@ -69,6 +73,8 @@ services:
       - elk
     depends_on:
       - elasticsearch
+    restart:
+      always
 
   kibana:
     build:
@@ -85,6 +91,8 @@ services:
       - elk
     depends_on:
       - elasticsearch
+    restart:
+      always
 
 networks:
   elk:
